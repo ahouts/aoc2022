@@ -1,0 +1,10 @@
+WHITESPACE = _{ " " }
+
+cmd = { "$" ~ (ls | cd) ~ "\n" }
+ls = { "ls" ~ ( "\n" ~ (number | dir) ~ name )* }
+cd = { "cd" ~ name }
+number = @{ ('0'..'9')+ }
+dir = { "dir" }
+name = @{ ('A'..'Z' | 'a'..'z' | "." | "/")+ }
+
+file = { SOI ~ cmd* ~ EOI }
