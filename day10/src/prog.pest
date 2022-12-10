@@ -1,0 +1,8 @@
+WHITESPACE = _{ " " }
+
+ins = { (noop | addx) ~ "\n" }
+noop = { "noop" }
+addx = { "addx" ~ number }
+number = @{ "-"? ~ ('0'..'9')+ }
+
+file = { SOI ~ ins* ~ EOI }
