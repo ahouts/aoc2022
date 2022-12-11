@@ -1,0 +1,15 @@
+WHITESPACE = _{ ( " " | "\t" ) }
+
+monkey = { "Monkey" ~ number ~ ":" ~ "\n" ~ starting_items ~ operation ~ test ~ "\n" }
+
+starting_items = { "Starting items:" ~ (number ~ ("," ~ number)*)? ~ "\n" }
+
+operation = { "Operation: new = " ~ ( old | number ) ~ operation_op ~ ( old | number ) ~ "\n" }
+operation_op = { ( "+" | "-" | "*" | "/" ) }
+
+test = { "Test: divisible by" ~ number ~ "\n" ~ "If true: throw to monkey" ~ number ~ "\n" ~ "If false: throw to monkey" ~ number ~ "\n" }
+
+number = @{ ('0'..'9')+ }
+old = { "old" }
+
+file = { SOI ~ monkey* ~ EOI }
