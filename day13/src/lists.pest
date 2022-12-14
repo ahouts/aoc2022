@@ -1,0 +1,8 @@
+WHITESPACE = _{ WHITE_SPACE }
+
+item = { (list | number) }
+
+list = { "[" ~ ( item ~ ( "," ~ item )* )? ~ "]" }
+number = @{ ('0'..'9')+ }
+
+file = { SOI ~ item* ~ EOI }
