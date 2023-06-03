@@ -1,0 +1,9 @@
+[package]
+name = "day15"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+regex = "1"
+anyhow = "1"
+range-collections = "0.4"
